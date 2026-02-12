@@ -1,9 +1,13 @@
-
 @import url(DePixel.zip);
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
 
+html, body {
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -19,32 +23,37 @@ body {
     background-color: #fff;
     position: fixed;
     width: 100%;
+    max-width: 100vw;
     padding-bottom: 0;
+    z-index: 1000;
+    left: 0;
+    right: 0;
 }
 
 #plansBox {
-	/* width: 0; */
-	display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
     width: 100%;
-    text-align: center;
-  }
-
-
-
-#roadmapText {
-	/* width:none; */
 }
 
 #roadmapImageBox {
-	width: 0%;
-	padding-top: 0px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 50px 0;
 }
 
 #roadmapImage {
-	width: 400px;
-	height: 500px;
-	padding-left: 30%;
+	width: 450px;
+	height: 450px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #plansBox {
@@ -125,16 +134,36 @@ body {
     min-height: 200vh;
     height: 100%;
     width: 100%;
+    max-width: 100vw;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding-top: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 120px;
+    overflow-x: hidden;
+}
+
+#homeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
 }
 
 #homeIntro { 
    font-family:'Courier New', Courier, monospace;
    text-align: center;
-   padding: 110vh 0 0 0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 30px;
 }
 
 #homeIntro h2 {
@@ -149,7 +178,11 @@ body {
 
 #homeWelcome {
     text-align: center;
-    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    max-width: 800px;
 }
 
 #homeWelcome p {
@@ -161,7 +194,8 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-top: 50px;
+    gap: 20px;
+    margin: 40px 0;
 }
 
 #buySquid , #squidChart {
@@ -182,7 +216,9 @@ body {
 }
 
 #homeSocials {
+    display: flex;
     justify-content: center;
+    align-items: center;
     text-align: center;
     padding-top: 30px;
 }
@@ -206,18 +242,24 @@ body {
 
 #tokenomics {
     width: 100%;
+    max-width: 100vw;
     min-height: 100vh;
     display: flex;
     flex-direction: row;
-    padding-bottom: 100px;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 60px 100px 60px;
+    overflow-x: hidden;
+    gap: 60px;
 }
 
 #tokenText {
     width: 50%;
-    padding: 250px 0 0 0;
-    text-align: center;
+    padding: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 #mainTokenText {
@@ -225,120 +267,343 @@ body {
 }
 
 #mainTokenText h1 {
-    font-size: 40px;
+    font-size: 42px;
     font-weight: 900;
     font-style: italic;
-    padding-bottom: 5px;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif , 'pixel';
+    margin-bottom: 15px;
+    color: #000;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#mainTokenText h2{
+#mainTokenText h2 {
+    font-size: 24px;
+    color: rgb(20, 162, 209);
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+#mainTokenText p {
     max-width: 500px;
-    padding-left: 100px;
-    
-}
-
-#mainTokenText p{
-    color: rgb(20, 162, 209);max-width: 650px;
-    padding: 30px 30px 0 75px;
-    font-size: 23px;
-    font-weight: 10;
+    font-size: 18px;
+    line-height: 1.6;
     color: rgb(87, 85, 85);
-    
+    margin-bottom: 30px;
 }
 
 #aboutToken {
     display: flex;
     flex-direction: row;
-    text-align: center; 
+    gap: 20px;
+    margin-top: 30px;
+    justify-content: flex-start;
     align-items: center; 
-    justify-content: center;
-    padding: 50px 0 0 55px;
+    flex-wrap: wrap;
 }
 
 #tokenInfo {
-    padding: 0 70px 0 0;
+    text-align: center;
+    padding: 18px 15px;
+    background: rgba(20, 162, 209, 0.05);
+    border-radius: 15px;
+    border: 2px solid rgba(20, 162, 209, 0.2);
+    transition: all 0.3s ease;
+    min-width: 120px;
+    flex: 1;
+    max-width: 160px;
+}
+
+#tokenInfo:hover {
+    background: rgba(20, 162, 209, 0.1);
+    border-color: rgba(20, 162, 209, 0.4);
+    transform: translateY(-3px);
 }
 
 #tokenInfo h3 {
-    font-size: 35px;
+    font-size: 32px;
     color: rgb(20, 162, 209);
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-bottom: 8px;
 }
 
 #tokenInfo p {
     color: rgb(87, 85, 85);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 #tokenImage {
     width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
 }
 
 #tokenImageBox {
-    padding-top: 100px;
-    width: 520px;
-    height: 650px;
+    width: 100%;
+    max-width: 450px;
+    height: 450px;
+    position: relative;
 }
 
-/*       ---------------------  HOW TO BUY  -----------------       */
+#tokenImageBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    animation: floatAnimation 8s ease-in-out infinite;
+}
+
+#tokenImageBox img:hover {
+    transform: scale(1.05) rotate(3deg);
+    filter: brightness(1.1);
+}
+
+/*       ---------------------  HOW TO BUY TIMELINE  -----------------       */
 
 #howToBuy {
     color: #fff;
     background-color: #000;
-    padding: 70px 0 70px 0;
+    padding: 70px 0 100px 0;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 #howToBuyHead {
     text-align: center;
-    padding: 15px 0 50px 0;
+    padding: 15px 0 80px 0;
 }
 
 #howToBuyHead h2 {
     color: rgb(20, 162, 209);
+    font-size: 28px;
+    margin-bottom: 10px;
 }
 
 #howToBuyHead h1 {
     font-style: italic;
-    font-size: 33px;
+    font-size: 40px;
     color: #fff;
     font-weight: 900;
 }
 
-#buySteps {
+/* Timeline Container */
+#timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Timeline Line - Remove continuous line */
+#timeline::before {
+    display: none;
+}
+
+/* Timeline Item */
+.timeline-item {
+    position: relative;
+    margin: 60px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Timeline Line Segments - Create breaks around circles */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -50px;
+    width: 3px;
+    height: 45px;
+    background: linear-gradient(to bottom, rgb(20, 162, 209), rgba(20, 162, 209, 0.8));
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -50px;
+    width: 3px;
+    height: 45px;
+    background: linear-gradient(to top, rgb(20, 162, 209), rgba(20, 162, 209, 0.8));
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Hide line segments for first and last items */
+.timeline-item:first-child::before {
+    display: none;
+}
+
+.timeline-item:last-child::after {
+    display: none;
+}
+
+/* Timeline Marker */
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    background: #000;
+    border: 2px solid rgb(20, 162, 209);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-number {
+    color: rgb(20, 162, 209);
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Timeline Content */
+.timeline-content {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(20, 162, 209, 0.3);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 0 80px;
+    width: calc(50% - 120px);
+    min-height: 100px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgb(20, 162, 209);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(20, 162, 209, 0.15);
+}
+
+/* Alternate sides */
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: auto;
+    margin-right: 80px;
+    flex-direction: row;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-right: auto;
+    margin-left: 80px;
+    flex-direction: row-reverse;
+}
+
+/* Timeline Icon */
+.timeline-icon {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid rgba(20, 162, 209, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.timeline-icon img {
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover .timeline-icon img {
+    transform: scale(1.05);
+}
+
+/* Timeline Text */
+.timeline-text {
+    flex: 1;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    justify-content: center;
 }
 
-#buyStepOne {
-    display: flex;
-    flex-direction: row;
-    padding: 0 0 50px 170px;
+.timeline-item:nth-child(odd) .timeline-text {
+    text-align: left;
 }
 
-#buyImage {
-    width: 85px;
-    height: 85px;
-    padding: 10px 30px 0 0;
+.timeline-item:nth-child(even) .timeline-text {
+    text-align: right;
 }
 
-#buyText {
-    width: 500px;
+.timeline-text h3 {
+    color: rgb(20, 162, 209);
+    font-size: 16px;
+    letter-spacing: 0.8px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-#buyText .firstP{
-    font-weight: bold;
-}
- 
-#buyText h3 {
-    color:rgb(20, 162, 209);
-    font-size: 25px;
-    letter-spacing: 2.5px;
+.timeline-text p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.3px;
+    margin: 0;
 }
 
-#buyText p {
-     font-size: 17px;
-     letter-spacing: 1px;
+/* Timeline Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(20, 162, 209, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(20, 162, 209, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(20, 162, 209, 0);
+    }
+}
+
+.timeline-item {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+
+.timeline-marker {
+    animation: pulse 2s infinite;
+}
+
+.timeline-marker:hover {
+    animation: pulse 1s infinite;
 }
 
 
@@ -346,83 +611,162 @@ body {
 
 #roadmap {
  width: 100%;
- padding-bottom: 50px;
+    max-width: 100vw;
+    padding: 80px 0 50px 0;
+    text-align: center;
+    overflow-x: hidden;
 } 
 
 #roadmapImageBox {
     width: 100%;
-    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
 }
 
 #roadmapImage {
-    width:  500px;
-    height: 500px;
-    padding-left: 30%;
+    width: 450px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #roadmapImage img {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    animation: floatAnimation 6s ease-in-out infinite;
+    box-shadow: 0 10px 30px rgba(20, 162, 209, 0.2);
+}
+
+#roadmapImage img:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 20px 40px rgba(20, 162, 209, 0.4);
+    filter: brightness(1.1);
+}
+
+/* Floating Animation */
+@keyframes floatAnimation {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-10px) rotate(1deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(-1deg);
+    }
 }
 
 #followRoadmap {
     text-align: center;
     display: flex;
     flex-direction: column;
+    margin: 40px 0;
 }
 
 #followRoadmap h2 {
     color: rgb(20, 162, 209);
-    font-size: 26px;
-    letter-spacing: 2px;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 8px 0;
+    text-transform: uppercase;
 }
 
 #roadmapText {
-    /* text-align: center; */
+    display: flex;
     justify-content: center;
-    text-align: center;
     align-items: center;
-    /* width: 100%; */
-    padding-top: 30px;
+    text-align: center;
+    padding: 30px 20px;
+    width: 100%;
 }
 
 #roadmapText p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
     text-align: center;
-    align-items: center;
-    /* max-width: 900px; */
-    justify-content: center;
-    /* padding-left: 200px; */
-    font-size: 18.5px;
+    padding: 0 20px;
+    font-weight: 400;
+}
+
+#plans {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(20, 162, 209, 0.3);
+    border-radius: 20px;
+    padding: 30px 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+#plans:hover {
+    transform: translateY(-5px);
+    border-color: rgb(20, 162, 209);
+    box-shadow: 0 15px 35px rgba(20, 162, 209, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#plans::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, rgb(20, 162, 209), rgba(20, 162, 209, 0.5));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#plans:hover::before {
+    opacity: 1;
 }
 
 #phaseNumber {
- padding: 15px 0 15px 0;
+    margin-bottom: 20px;
 }
 
 #phaseNumber h1 {
-    font-size: 40px;
-    padding-bottom: 10px;
-}
-
-#phasePlans {
-
+    font-size: 48px;
+    font-weight: 700;
+    color: rgb(20, 162, 209);
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(20, 162, 209, 0.3);
 }
 
 #phasePlans h2 {
-    color:  rgb(20, 162, 209);
-    font-size: 23px;
-    padding: 0 0 10px 0;
+    color: rgb(20, 162, 209);
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 #phasePlans ul {
- padding-top: 4px;
+    padding: 0;
+    margin: 0;
 }
 
 #phasePlans ul li {
     list-style: none;
-    padding-bottom: 5px;
-    font-size: 17px;
+    padding: 8px 0;
+    font-size: 16px;
+    color: #333;
 }
 
 
@@ -432,18 +776,39 @@ body {
     background-color: #000;
     color: #fff;
     width: 100%;
-    padding: 120px 0px 120px 0px;
+    max-width: 100vw;
+    padding: 80px 0 40px 0;
+    overflow-x: hidden;
+}
+
+#footerCopyright {
+    text-align: center;
+    padding: 30px 20px 0 20px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#footerCopyright p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 5px 0;
+    line-height: 1.4;
+    white-space: nowrap;
+    display: inline-block;
 }
 
 #footerPack {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    align-items: start;
 }
 
 #aboutFooter {
-    padding-left: 100px;
-    padding-top: 35px;
-    cursor: pointer;
+    padding: 0;
 }
 
 #aboutFooter h1 {
@@ -474,7 +839,7 @@ body {
 #disclaimerFooter {
     display: flex;
     flex-direction: column;
-    padding: 40px 0 0 250px;
+    padding: 0;
 }
 
 #disclaimer {
@@ -504,7 +869,11 @@ body {
 }
 
 #copyright {
-    padding-left: 50px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 #copyrightText h3 {
@@ -546,12 +915,60 @@ body {
 
 
 
-/*              MOBILE VIEW               */
+/*              RESPONSIVE DESIGN               */
+
+/* Tablet and Medium Screens */
+@media(max-width:1200px) {
+    .timeline-content {
+        width: calc(50% - 100px);
+        margin: 0 70px;
+        padding: 20px;
+        min-height: 90px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+        margin-right: 70px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 70px;
+    }
+
+    .timeline-icon {
+        width: 55px;
+        height: 55px;
+    }
+
+    .timeline-text {
+        padding: 0 15px;
+    }
+
+    .timeline-text h3 {
+        font-size: 14px;
+        letter-spacing: 0.6px;
+        margin-bottom: 8px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .timeline-text p {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+}
 
 @media(max-width:991px) {
     * {
         padding: 0;
         margin: 0;
+        box-sizing: border-box;
+    }
+
+    html, body {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
     }
 
     #navBar {
@@ -563,28 +980,40 @@ body {
         display: flex;
         flex-direction: column;
         position: fixed;
-        justify-content: center;
+        justify-content: flex-start;
         right: -300px;
         background-color: #ffffff;
         color: #000;
-        width: 200px;   
-        top: 0px;
+        width: 250px;   
+        top: 0;
+        bottom: 0;
         align-items: flex-start;
-        height: 75vh;
-        padding: 0px 0 400px 20px;
-        box-shadow: 0 40px 60px rgba(0,0,0,0.1);
+        height: 100vh;
+        padding: 80px 0 0 20px;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
         transition: 0.5s;
+        z-index: 9999;
     }
 
     #navBar ul {
         display: flex;
         flex-direction: column;
+        padding: 0;
+        margin: 0;
+        width: 100%;
     }
 
     #navBar ul li {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
         display: flex;
         flex-direction: column;
+        width: 100%;
+    }
+
+    #navBar ul li a {
+        padding: 10px 0;
+        font-size: 18px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
     }
 
     #navBar ul li a:hover::before {
@@ -611,16 +1040,21 @@ body {
     #close {
         display: initial;
         position: absolute;
-        margin-top: -475px;
-        left: 30px;
+        top: 20px;
+        left: 20px;
         font-size: 25px;
         color: #000;
+        cursor: pointer;
+        z-index: 10000;
     }
 
     #homePage {
         background-size: 100%;
         min-height: 0;
         padding-top: 150px;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
     }
 
     #homeContainer {
@@ -652,12 +1086,79 @@ body {
     }
 
     #tokenomics {
-        width: 100%;
-        min-height: 0vh;
-        display: flex;
         flex-direction: column;
-        padding-bottom: 100px;
+        padding: 50px 20px;
+        min-height: auto;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
     }
+
+    #tokenText {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    #mainTokenText {
+        max-width: 100%;
+    }
+    
+    #mainTokenText h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    #mainTokenText h2 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    #mainTokenText p {
+        font-size: 15px;
+        max-width: 100%;
+        margin-bottom: 25px;
+    }
+
+    #aboutToken {
+        flex-direction: row;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 25px;
+    }
+
+    #tokenInfo {
+        flex: 1;
+        min-width: 120px;
+        max-width: 180px;
+        padding: 15px 10px;
+    }
+
+    #tokenInfo h3 {
+        font-size: 24px;
+    }
+
+    #tokenInfo p {
+        font-size: 11px;
+    }
+
+    #tokenImage {
+        width: 100%;
+        padding: 0;
+        order: -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #tokenImageBox {
+        max-width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+
     #homeWelcome p {
         font-size: 20px;
     }
@@ -671,163 +1172,213 @@ body {
         font-size: 70px;
     }
 
-    
-    #mainTokenText h1 {
-        text-align: center;
-        font-size: 1.7em !important;
-        padding-left: 60px;
-    }
-
-    #mainTokenText h2 {
-        /* max-width: 100px; */
-        padding-left: 50px;
-        font-size: 19px;
-    }
-
-    #mainTokenText p {
-        /* min-width: 300px; */
-        padding: 0 0 0 50px;
-        font-size: 18px;
-        font-weight: 200;
-    }
-
-    #tokenText {
-        width: 50%;
-        padding: 100px 0 0 0;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        align-self: center;
-    }
-
-    #aboutToken {
-        padding: 50px 0 0 0px;
-    }
-
-    #aboutToken {
-        padding: 50px 0 0 100px;
-    }
-
-    #tokenInfo h3 {
-        font-size: 30px;
-    }
-
-    #tokenImageBox {
-        padding-top: 50px;
-        width: 300px;
-        height: 400px;
-    }
-
-
-    #tokenImage {
-        align-self: center;
-        padding-bottom: 30px;
-        align-content: center;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-        width: 50%;
-        padding-left: 200px;
-    }
-
     #howToBuy {
         color: #fff;
         background-color: #000;
-        padding: 40px 0 20px 0;
+        padding: 40px 0 60px 0;
     }
 
     #howToBuyHead h1 {
-        font-size: 25px;
+        font-size: 28px;
     }
 
-    #buyImage {
-        width: 80px;
-        height: 60px;
-        padding: 10px 30px 0 0;
+    #howToBuyHead h2 {
+        font-size: 22px;
     }
 
-    #buyText h3 {
-        color: rgb(20, 162, 209);
-        font-size: 18px;
-        letter-spacing: 0.2px;
+    /* Mobile timeline line segments */
+    .timeline-item::before {
+        left: 25px;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 40px;
+        top: -45px;
     }
 
-    #buyText p {
-        font-size: 15px;
-        letter-spacing: 0.09px;
+    .timeline-item::after {
+        left: 25px;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 40px;
+        bottom: -45px;
+    }
+
+    .timeline-item {
+        margin: 35px 0;
+    }
+
+    .timeline-marker {
+        left: 25px;
+        transform: translateX(-50%);
+        width: 35px;
+        height: 35px;
+        border-width: 2px;
+    }
+
+    .timeline-number {
+        font-size: 10px;
+    }
+
+    .timeline-content {
+        width: calc(100% - 70px);
+        margin: 0 0 0 70px !important;
+        flex-direction: column !important;
+        padding: 18px;
+        text-align: center !important;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+        margin: 0 0 0 70px !important;
+        flex-direction: column !important;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-text,
+    .timeline-item:nth-child(even) .timeline-text {
+        text-align: center !important;
+    }
+
+    .timeline-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 12px;
+        border-width: 1px;
+    }
+
+    .timeline-text {
+        padding: 0 10px !important;
+    }
+
+    .timeline-text h3 {
+        font-size: 14px;
+        letter-spacing: 0.6px;
+        margin-bottom: 6px;
+        line-height: 1.3;
+    }
+
+    .timeline-text p {
+        font-size: 12px;
+        line-height: 1.4;
+        text-align: center !important;
     }
 
     #roadmapImage {
-        width: 400px;
-        height: 500px;
-        padding-left: 30%;
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     #roadmapImageBox {
         width: 100%;
-        padding-top:0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
     }
 
     #followRoadmap h2 {
-        font-size: 20px;
-        letter-spacing: 1px;
+        font-size: 28px;
+        letter-spacing: 2px;
     }
 
     #roadmapText p {
-        text-align: center;
-        align-items: center;
-        /* max-width: 600px; */
-        justify-content: center;
-        /* padding-left: 200px; */
-        font-size: 15.5px;
-        align-self: center;
-        align-content: center;
-        align-items: center;
+        font-size: 16px;
+        padding: 0 15px;
+        max-width: 600px;
     }
 
     #plansBox {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+        margin: 30px auto;
     }
 
     #plans {
-        padding-left: 0;
+        padding: 25px 20px;
+    }
+
+    #phaseNumber h1 {
+        font-size: 40px;
+    }
+
+    #phasePlans h2 {
+        font-size: 20px;
+    }
+
+    #phasePlans ul li {
+        font-size: 15px;
     }
 
     #footerPack {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+        padding: 0 20px;
     }
 
     #footer {
         width: 100%;
-        padding: 50px 0px 50px 0px;
+        padding: 50px 0;
     }
 
-    #aboutFooter h1 {
-        font-size: 16px;
-    }
-
-    #aboutFooter li a {
-        font-size: 14px;
-    }
-
-    #aboutFooter {
-        padding-left: 40px;
+    #copyright {
+        order: 1;
+        padding: 0;
+        margin-bottom: 20px;
     }
 
     #disclaimerFooter {
-        padding: 40px 0 0 40px;
+        order: 2;
+        padding: 0;
+    }
+
+    #disclaimer h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
     }
 
     #disclaimer p {
         font-size: 15px;
+        max-width: 400px;
+        margin: 0 auto;
     }
 
-    #copyright {
-        padding-left: 40px;
+    #disclaimerContract {
+        margin-top: 20px;
+    }
+
+    #disclaimerContract p {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    #aboutFooter {
+        order: 3;
+    }
+
+    #aboutFooter h1 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    #aboutFooter li {
+        padding-top: 8px;
+    }
+
+    #aboutFooter li a {
+        font-size: 15px;
+    }
+
+    #footerCopyright {
+        margin-top: 30px;
+        padding: 20px 15px 0 15px;
+    }
+
+    #footerCopyright p {
+        font-size: 11px;
     }
 
     #logo #logoBox {
@@ -860,15 +1411,18 @@ body {
         padding-left: 0;
     }
 }
+
 @media(max-width:745px) {
     #homeWelcome p {
         font-size: 18px;
     }
 
     #roadmapImage {
-        width: 400px;
-        height: 500px;
-        padding-left: 22%;
+        width: 280px;
+        height: 280px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     #tokenImage {
@@ -880,33 +1434,21 @@ body {
     }
 
     #roadmapImage {
-        width: 300px;
-        height: 400px;
-        padding-left: 29%;
+        width: 250px;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
 @media(max-width:772px) {
     #roadmapImage {
-        width: 400px;
-        height: 500px;
-        padding-left: 25%;
-    }
-}
-
-@media(max-width:450px) {
-    #roadmapImage {
-        width: 300px;
-        height: 400px;
-        padding-left: 17%;
-    }
-}
-
-@media(max-width:385px) {
-    #roadmapImage {
-        width: 300px;
-        height: 400px;
-        padding-left: 10%;
+        width: 280px;
+        height: 280px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -915,17 +1457,26 @@ body {
         font-size: 15px;
     }
 
-    #buyText p {
-        font-size: 15px;
-        letter-spacing: 0px;
+    #followRoadmap h2 {
+        font-size: 24px;
+        letter-spacing: 1.5px;
     }
 
     #roadmapText p {
-        /* padding-left: 50px; */
+        font-size: 15px;
+        max-width: 500px;
     }
 
-    #plans {
-        padding-left: 0;
+    #phaseNumber h1 {
+        font-size: 36px;
+    }
+
+    #phasePlans h2 {
+        font-size: 18px;
+    }
+
+    #phasePlans ul li {
+        font-size: 14px;
     }
 }
 
@@ -946,31 +1497,57 @@ body {
 }
 
 @media(max-width:555px) {
-    #mainTokenText {
-        min-width: 400px;
+    #tokenomics {
+        padding: 40px 15px;
     }
 
-    #tokenImage {
-        padding-left: 0px;
+    #mainTokenText h1 {
+        font-size: 24px;
+    }
+
+    #mainTokenText h2 {
+        font-size: 16px;
+    }
+
+    #mainTokenText p {
+        font-size: 14px;
     }
 
     #aboutToken {
-        padding: 50px 0 0 10px;
+        gap: 12px;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
     }
 
-    #tokenText {
-        width: 100%;
-        padding: 100px 0 0 0;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        align-self: center;
+    #tokenInfo {
+        max-width: 150px;
+        min-width: 100px;
+        padding: 12px 8px;
+        margin: 0;
+        flex: 1;
+    }
+
+    #tokenInfo h3 {
+        font-size: 20px;
+    }
+
+    #tokenInfo p {
+        font-size: 10px;
+    }
+
+    #tokenImageBox {
+        max-width: 250px;
+        height: 250px;
     }
 
     #roadmapImage {
-        width: 300px;
-        height: 400px;
-        padding-left: 22%;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -984,7 +1561,233 @@ body {
     }
 }
 
-@media(max-width:363px) {
+@media(max-width:450px) {
+    #tokenomics {
+        padding: 30px 10px;
+    }
+
+    #mainTokenText h1 {
+        font-size: 22px;
+    }
+
+    #mainTokenText h2 {
+        font-size: 14px;
+    }
+
+    #mainTokenText p {
+        font-size: 13px;
+    }
+
+    #tokenInfo {
+        max-width: 150px;
+        padding: 10px;
+    }
+
+    #tokenInfo h3 {
+        font-size: 18px;
+    }
+
+    #tokenInfo p {
+        font-size: 9px;
+    }
+
+    #tokenImageBox {
+        max-width: 200px;
+        height: 200px;
+    }
+
+    #roadmapImage {
+        width: 240px;
+        height: 240px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #followRoadmap h2 {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+
+    #roadmapText p {
+        font-size: 14px;
+        max-width: 400px;
+        padding: 0 10px;
+    }
+
+    #plans {
+        padding: 20px 15px;
+    }
+
+    #phaseNumber h1 {
+        font-size: 32px;
+    }
+
+    #phasePlans h2 {
+        font-size: 16px;
+    }
+
+    #phasePlans ul li {
+        font-size: 13px;
+    }
+
+    /* Footer responsive improvements */
+    #footerPack {
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    #aboutFooter h1 {
+        font-size: 16px;
+    }
+
+    #aboutFooter li a {
+        font-size: 13px;
+    }
+
+    #disclaimer h3 {
+        font-size: 16px;
+    }
+
+    #disclaimer p {
+        font-size: 13px;
+        max-width: 300px;
+    }
+
+    #disclaimerContract p {
+        font-size: 11px;
+    }
+
+    #footerCopyright p {
+        font-size: 10px;
+    }
+}
+
+@media(max-width:385px) {
+    #tokenomics {
+        padding: 25px 8px;
+    }
+
+    #mainTokenText h1 {
+        font-size: 20px;
+    }
+
+    #mainTokenText h2 {
+        font-size: 13px;
+    }
+
+    #mainTokenText p {
+        font-size: 12px;
+    }
+
+    #tokenInfo {
+        max-width: 130px;
+        padding: 8px;
+    }
+
+    #tokenInfo h3 {
+        font-size: 16px;
+    }
+
+    #tokenInfo p {
+        font-size: 8px;
+    }
+
+    #tokenImageBox {
+        max-width: 180px;
+        height: 180px;
+    }
+
+    #roadmapImage {
+        width: 220px;
+        height: 220px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Extra small footer adjustments */
+    #footerPack {
+        gap: 15px;
+        padding: 0 8px;
+    }
+
+    #aboutFooter h1 {
+        font-size: 14px;
+    }
+
+    #aboutFooter li a {
+        font-size: 12px;
+    }
+
+    #disclaimer h3 {
+        font-size: 14px;
+    }
+
+    #disclaimer p {
+        font-size: 12px;
+        max-width: 250px;
+    }
+
+    #disclaimerContract p {
+        font-size: 10px;
+    }
+
+    #footerCopyright p {
+        font-size: 9px;
+    }
+
+    /* Extra small screens timeline adjustments */
+    .timeline-item::before {
+        left: 22px;
+        height: 35px;
+        top: -40px;
+    }
+
+    .timeline-item::after {
+        left: 22px;
+        height: 35px;
+        bottom: -40px;
+    }
+
+    .timeline-marker {
+        left: 22px;
+        width: 30px;
+        height: 30px;
+        border-width: 2px;
+    }
+
+    .timeline-number {
+        font-size: 9px;
+    }
+
+    .timeline-content {
+        width: calc(100% - 60px);
+        margin: 0 0 0 60px !important;
+        padding: 15px;
+    }
+
+    .timeline-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .timeline-text {
+        padding: 0 8px !important;
+    }
+
+    .timeline-text h3 {
+        font-size: 14px;
+        letter-spacing: 0.6px;
+        margin-bottom: 6px;
+    }
+
+    .timeline-text p {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
     #mainTokenText {
         min-width: 300px;
     }
