@@ -13,3 +13,11 @@ if(close) {
         navLinks.classList.remove('active')
     })
 }
+
+// Close mobile menu when a link is clicked
+const navLinksItems = navLinks.querySelectorAll('a:not(#close)');
+navLinksItems.forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
