@@ -1852,18 +1852,3 @@ body {
         padding-top: 0px;
     }
 }
-
-@media(mqx-width:375px) {
-    #roadmapImage {
-        width: 200px;
-        height: 200px;
-        padding-left: 20%;
-    }
-
-    #roadmapText p {
-        /* padding-left: 10px; */
-        font-size: 13px;
-    }
-
-    
-}
