@@ -351,13 +351,18 @@ body {
     justify-content: center;
     align-items: center;
     padding: 0;
+    margin: 0 auto;
 }
 
 #tokenImageBox {
     width: 100%;
     max-width: 450px;
-    height: 450px;
+    aspect-ratio: 1;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
 
 #tokenImageBox img {
@@ -367,6 +372,7 @@ body {
     border-radius: 20px;
     transition: all 0.4s ease;
     animation: floatAnimation 8s ease-in-out infinite;
+    display: block;
 }
 
 #tokenImageBox img:hover {
@@ -1170,18 +1176,22 @@ body {
 
     #tokenImage {
         width: 100%;
-        max-width: 400px;
+        max-width: 350px;
         padding: 0;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 0 auto;
     }
 
     #tokenImageBox {
-        max-width: 100%;
-        height: auto;
+        width: 100%;
+        max-width: 350px;
         margin: 0 auto;
         aspect-ratio: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     #homeWelcome p {
@@ -1564,7 +1574,12 @@ body {
 
     #tokenImageBox {
         max-width: 250px;
-        height: 250px;
+        width: 100%;
+        aspect-ratio: 1;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     #roadmapImage {
@@ -1618,7 +1633,12 @@ body {
 
     #tokenImageBox {
         max-width: 200px;
-        height: 200px;
+        width: 100%;
+        aspect-ratio: 1;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     #roadmapImage {
@@ -1720,7 +1740,12 @@ body {
 
     #tokenImageBox {
         max-width: 180px;
-        height: 180px;
+        width: 100%;
+        aspect-ratio: 1;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     #roadmapImage {
