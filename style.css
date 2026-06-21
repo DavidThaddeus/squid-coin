@@ -1461,7 +1461,7 @@ body {
     }
 
     #tokenImage {
-        padding-left: 100px;
+        padding-left: 0;
     }
 
     #plans {
@@ -1593,11 +1593,11 @@ body {
 
 @media(max-width:441px) {
     #aboutToken {
-        padding: 50px 0 0 90px;
+        padding: 50px 0 0 0;
     }
 
     #tokenInfo {
-        padding: 0 50px 0 0;
+        padding: 0 0 0 0;
     }
 }
 
@@ -1843,7 +1843,7 @@ body {
     }
 
     #aboutToken {
-        padding: 50px 0 0 50px;
+        padding: 50px 0 0 0;
     }
 
     #homePage {
